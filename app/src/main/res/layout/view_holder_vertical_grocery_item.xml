@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_medium"
-    app:cardCornerRadius="@dimen/margin_medium"
-    app:cardElevation="@dimen/margin_small">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/margin_medium_2">
+        android:padding="@dimen/margin_medium">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:id="@+id/cvGroceryImage"
             app:cardCornerRadius="@dimen/margin_medium"
+            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -32,7 +30,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/cvGroceryImage"
+            android:layout_below="@id/cvGroceryImage"
             android:fontFamily="sans-serif-medium"
             android:text="Milk"
             android:layout_marginStart="@dimen/margin_small"
@@ -48,7 +46,6 @@
             android:layout_alignStart="@id/tvTitle"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:layout_marginEnd="@dimen/margin_xlarge"
-            android:layout_toStartOf="@id/btnEdit"
             android:fontFamily="sans-serif-medium"
             android:layout_marginStart="@dimen/margin_small"
             android:text="For the hungy kids at home"
@@ -60,8 +57,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_medium_2"
             android:text="x 5"
+            android:layout_below="@id/cvGroceryImage"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_regular_3x"
             android:textStyle="bold" />
@@ -70,9 +68,9 @@
             android:id="@+id/btnDelete"
             android:layout_width="@dimen/margin_medium_3"
             android:layout_height="@dimen/margin_medium_3"
-            android:layout_below="@id/tvCount"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_toEndOf="@id/btnEdit"
+            android:layout_below="@id/tvDescription"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:src="@drawable/ic_baseline_delete_forever_24_green" />
 
@@ -80,22 +78,19 @@
             android:id="@+id/btnEdit"
             android:layout_width="@dimen/margin_medium_3"
             android:layout_height="@dimen/margin_medium_3"
-            android:layout_below="@id/tvCount"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tvDescription"
+            android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium_2"
-            android:layout_toStartOf="@id/btnDelete"
+           android:layout_toEndOf="@id/btnFileUpload"
             android:src="@drawable/ic_baseline_edit_24" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnFileUpload"
             android:layout_width="@dimen/margin_medium_3"
             android:layout_height="@dimen/margin_medium_3"
-            android:layout_below="@id/tvCount"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tvDescription"
             android:layout_marginTop="@dimen/margin_medium_2"
-            android:layout_toStartOf="@id/btnEdit"
             android:src="@drawable/ic_baseline_cloud_upload_24" />
 
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

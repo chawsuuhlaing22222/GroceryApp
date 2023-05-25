@@ -1,12 +1,14 @@
 package com.padc.grocery.viewholders
 
 import android.view.View
+import com.bumptech.glide.Glide
 import com.padc.grocery.data.vos.GroceryVO
 import com.padc.grocery.delegates.GroceryViewItemActionDelegate
 import com.zg.burgerjoint.viewholders.BaseViewHolder
 import kotlinx.android.synthetic.main.view_holder_grocery_item.view.*
 
-class GroceryViewHolder(itemView: View, private val mDelegate: GroceryViewItemActionDelegate) : BaseViewHolder<GroceryVO>(itemView) {
+class GroceryViewHolder(itemView: View, private val mDelegate: GroceryViewItemActionDelegate) :
+    BaseViewHolder<GroceryVO>(itemView) {
 
     override fun bindData(data: GroceryVO) {
         itemView.tvTitle.text = data.name
@@ -18,7 +20,15 @@ class GroceryViewHolder(itemView: View, private val mDelegate: GroceryViewItemAc
         }
 
         itemView.btnEdit.setOnClickListener {
-            mDelegate.onTapEditGrocery(data.name ?: "", data.description ?: "", data.amount ?: 0)
+            mDelegate.onTapEditGrocery(data.name ?: "", data.description ?: "", data.amount ?: 0,data.image ?: "")
         }
+
+        itemView.btnFileUpload.setOnClickListener {
+            mDelegate.onTapFileUpload(data)
+        }
+
+        Glide.with(itemView.context)
+            .load(data.image)
+            .into(itemView.ivGroceryImage)
     }
 }

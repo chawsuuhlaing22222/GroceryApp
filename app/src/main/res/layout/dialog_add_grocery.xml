@@ -60,6 +60,36 @@
             android:hint="Amount" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:id="@+id/cvGroceryImageDialog"
+        app:cardCornerRadius="@dimen/margin_medium"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivGroceryImageDialog"
+            android:layout_width="@dimen/grocery_image_size"
+            android:layout_height="@dimen/grocery_image_size"
+            app:srcCompat="@drawable/ic_baseline_insert_drive_file_24"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnFileUploadDialog"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        app:layout_constraintStart_toEndOf="@id/cvGroceryImageDialog"
+        app:layout_constraintBottom_toBottomOf="@+id/cvGroceryImageDialog"
+        android:layout_width="@dimen/margin_xlarge"
+        android:layout_height="@dimen/margin_xlarge"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_cloud_upload_24" />
+
     <Button
         android:id="@+id/btnAddGrocery"
         android:layout_width="250dp"
@@ -72,6 +102,6 @@
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/cvGroceryImageDialog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
