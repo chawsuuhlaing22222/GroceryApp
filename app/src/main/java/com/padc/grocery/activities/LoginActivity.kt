@@ -3,7 +3,10 @@ package com.padc.grocery.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.padc.grocery.R
 import com.padc.grocery.mvp.presenters.LoginPresenter
 import com.padc.grocery.mvp.presenters.impls.LoginPresenterImpl
@@ -30,6 +33,12 @@ class LoginActivity : BaseActivity(), LoginView {
         setUpPresenter()
         setUpActionListeners()
         mPresenter.onUiReady(this,this)
+
+        //token
+        //flb_j0xDTt6poofulGwbVM:APA91bEPMdIAtJWXcjT8yE598pspitJ2ikEnn7XVzcFCrM1ZDWgNTLrFCAThn4VSyu-tns3xAcsqMCVJ8XdV6RrajIpAPoDu_-YLm4o3oYmN9C3GLnFBaCHXSp7cMtlnpWXLTGaq4_Nw
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            Log.d("firebase_token",it.result)
+        }
     }
 
     private fun setUpActionListeners() {
